@@ -6,7 +6,7 @@
     <name>MathCalculator</name>
 
     <js-module name="MathCalculator" src="www/MathCalculator.js">
-        <clobbers target="cordova.plugins.MathCalculator" />
+        <clobbers target="MathCalculator" /> <!-- changed here -->
     </js-module>
 
     <platform name="ios">
