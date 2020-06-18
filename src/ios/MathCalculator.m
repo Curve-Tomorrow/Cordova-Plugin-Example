@@ -7,7 +7,7 @@
 }
 
 - (void)add:(CDVInvokedUrlCommand*)command;
-- (void)subtract:(CDVInvokedUrlCommand*)command;
+- (void)substract:(CDVInvokedUrlCommand*)command;
 
 @end
 
@@ -27,7 +27,7 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)subtract:(CDVInvokedUrlCommand*)command
+- (void)substract:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
     NSNumber* param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
