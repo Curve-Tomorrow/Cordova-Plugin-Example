@@ -7,7 +7,7 @@
 }
 
 - (void)add:(CDVInvokedUrlCommand*)command;
-- (void)substract:(CDVInvokedUrlCommand*)command;
+- (void)subsgit tract:(CDVInvokedUrlCommand*)command;
 
 @end
 
