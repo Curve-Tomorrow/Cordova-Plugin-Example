@@ -15,11 +15,11 @@
 - (void)add:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    NSString* param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
-    NSString* param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
+    NSNumber* param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
+    NSNumber* param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
     if(param1 >=0 && param2 >= 0) // changed here
     {
-        NSString* total = @"100";
+    NSString* total = [NSString stringWithFormat: @"%@", @([param1 intValue] + [param2 intValue])];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
     }else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -28,12 +28,13 @@
 }
 
 - (void)subtract:(CDVInvokedUrlCommand*)command
-{ 
+{
     CDVPluginResult* pluginResult = nil;
-    NSString* param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
-    NSString* param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
-    if(param1 >= 0 && param2 ){
-        NSString* total = @"200";
+    NSNumber* param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
+    NSNumber* param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
+    if(param1 >=0 && param2 >= 0) // changed here
+    {
+    NSString* total = [NSString stringWithFormat: @"%@", @([param1 intValue] - [param2 intValue])];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
     }else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
