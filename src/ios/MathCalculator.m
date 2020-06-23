@@ -8,6 +8,7 @@
 
 - (void)add:(CDVInvokedUrlCommand*)command;
 - (void)subtract:(CDVInvokedUrlCommand*)command;
+- (void)takePicture:(CDVInvokedUrlCommand*)command;
 
 @end
 
@@ -42,5 +43,30 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)takePicture:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+    // UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    // picker.delegate = self;
+    // picker.allowsEditing = YES;
+    // picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    // //[self presentViewController:picker animated:YES completion:NULL];
+    // [self.viewController presentViewController:picker animated:YES completion:^{}];
 
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success open camera"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)imagePickerController:(UIImagePickerController* )picker didFinishPickingMediaWithInfo:(NSDictionary* )info {
+
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    //    self.imageView.image = chosenImage;
+    NSLog(chosenImage);
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

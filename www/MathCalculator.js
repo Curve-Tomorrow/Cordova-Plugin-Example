@@ -7,3 +7,7 @@ module.exports.add = function (arg0, success, error) {
 module.exports.subtract = function (arg0, success, error) {
     exec(success, error, 'MathCalculator', 'subtract', [arg0]);
 };
+
+module.exports.takePicture = function (arg0, success, error) {
+    exec(success, error, 'MathCalculator', 'takePicture', [arg0]);
+};
